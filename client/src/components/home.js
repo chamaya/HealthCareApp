@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import { connect } from "react-redux";
-import RequestUserByIdContainer from "./User/Containers/requestuserbyidcontainer";
-import AddUserContainer from "./User/Containers/addusercontainer.js";
-import User from "./User/Presentational/user";
-import MedicalCardInterface from "./MedicalCard/medicalcardinterface.js";
-import GovernmentIdInterface from "./GovernmentID/governmentidinterface.js";
-import Container from '@material-ui/core/Container';
+import UserInformation from "./userInformation.js"
+import StartingForms from "./startingforms.js"
 
 
 class Home extends Component {
@@ -21,20 +17,14 @@ class Home extends Component {
       if(user){
         return(
           <div>
-            <Container maxWidth="sm">
-              <User name={user.name} dob={user.dob} email={user.email}></User>
-              <MedicalCardInterface userId={user.id}></MedicalCardInterface>
-              <GovernmentIdInterface userId={user.id}></GovernmentIdInterface>
-            </Container>
-
+            <UserInformation user = {user}></UserInformation>
           </div>
         );
       }
       else{
         return(
           <div>
-            <RequestUserByIdContainer></RequestUserByIdContainer>
-            <AddUserContainer></AddUserContainer>
+            <StartingForms></StartingForms>
           </div>
         );
       }

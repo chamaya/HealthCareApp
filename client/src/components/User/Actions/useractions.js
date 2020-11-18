@@ -7,7 +7,7 @@ export const ADD_USER_FAILURE = "ADD_USER_FAILURE";
 
 const request = require('request');
 //Set User set of API calls
-export function setUser(userId){
+export function setUser(userId, history){
   return async (dispatch) =>{
     dispatch(setUserBegin());
     var options = {
@@ -20,6 +20,7 @@ export function setUser(userId){
       if (error || !response || response.statusCode > 399) return dispatch(setUserFailure(error));
       const user = JSON.parse(response.body)[0];
       console.log('User fetched...', user);
+      setTimeout(()=>{history.push("/userinformation")}, 0);
       return dispatch(setUserSuccess(user));
     });
   }
@@ -35,7 +36,7 @@ const setUserFailure = error => ({
 });
 
 //Add  User set of API calls
-export function addUser(user){
+export function addUser(user, history){
   return async (dispatch) => {
     dispatch(addUserBegin());
     var options = {
@@ -50,6 +51,7 @@ export function addUser(user){
       if (error || !response || response.statusCode > 399) return dispatch(addUserFailure(error));
       const userResponse = JSON.parse(response.body);
       console.log("Added User: ", userResponse);
+      setTimeout(()=>{history.push("/userinformation")}, 0);
       dispatch(addUserSuccess(userResponse));
     });
   }
