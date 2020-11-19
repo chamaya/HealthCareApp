@@ -1,5 +1,5 @@
-CREATE DATABASE weedmaps;
-use weedmaps;
+create database heathcare;
+use heathcare;
 CREATE TABLE USERS(
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
