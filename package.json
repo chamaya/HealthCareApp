@@ -1,7 +1,7 @@
 {
-  "name": "challenge-api-chamaya",
+  "name": "Health Care App",
   "version": "1.0.0",
-  "description": "WeedMaps coding challege to create REST API",
+  "description": "UI to display user medical information",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,14 +11,10 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GhostGroup/challenge-api-chamaya.git"
+    "url": "git+https://github.com/chamaya/HealthCareApp.git"
   },
   "author": "Christopher Amaya",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GhostGroup/challenge-api-chamaya/issues"
-  },
-  "homepage": "https://github.com/GhostGroup/challenge-api-chamaya#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
