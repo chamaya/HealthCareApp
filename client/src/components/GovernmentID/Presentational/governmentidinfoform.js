@@ -57,7 +57,7 @@ const renderTextField = ({
 )
 
 let GovernmentIdInfoForm = props => {
-    const { handleSubmit, isSubmitting, pristine, submitting, classes } = props
+    const { handleSubmit, isSubmitting, onCancel, pristine, submitting, classes } = props
     return (
       <Card variant = "outlined" className={classes.card}>
         <CardContent>
@@ -84,7 +84,10 @@ let GovernmentIdInfoForm = props => {
               />
             </Container>
 
-            <Container><Button type="submit"  variant="contained" disabled={pristine || submitting}>Submit</Button></Container> { isSubmitting ? "PROCESSING": "" }
+            <Container>
+              <Button type="submit"  variant="contained" disabled={pristine || submitting}>Submit</Button>
+              <Button  variant="contained" onClick = { onCancel }>Cancel</Button>
+              </Container> { isSubmitting ? "PROCESSING": "" }
           </form>
         </CardContent>
       </Card>

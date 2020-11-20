@@ -9,7 +9,7 @@ import { userUpdatingGovernmentId, setGovernmentId } from "./Actions/governmenti
 class GovernmentIdInterface extends Component {
 
     static propTypes = {
-      cardBeingUpdatedByUser: PropTypes.bool.isRequired,
+      governmentIdBeingUpdatedByUser: PropTypes.bool.isRequired,
       userId: PropTypes.number.isRequired,
       isSettingGovernmentId: PropTypes.bool.isRequired,
       governmentId: PropTypes.object,
@@ -25,13 +25,13 @@ class GovernmentIdInterface extends Component {
     }
 
     render(){
-        const { governmentId, cardBeingUpdatedByUser, isSettingGovernmentId } = this.props;
+        const { governmentId, governmentIdBeingUpdatedByUser, isSettingGovernmentId } = this.props;
         if(isSettingGovernmentId){
           return(<div>...Setting Government ID</div>)
         }
         else{
           if(governmentId){
-            if(cardBeingUpdatedByUser){
+            if(governmentIdBeingUpdatedByUser){
               return(
                 <UpdateGovernmentIdContainer></UpdateGovernmentIdContainer>
               );
@@ -54,7 +54,7 @@ class GovernmentIdInterface extends Component {
 
 const mapStateToProps = (state) => ({
     governmentId: state.governmentId.governmentId,
-    cardBeingUpdatedByUser: state.governmentId.cardBeingUpdatedByUser,
+    governmentIdBeingUpdatedByUser: state.governmentId.governmentIdBeingUpdatedByUser,
     setGovernmentIdError: state.governmentId.setGovernmentIdError,
     isSettingGovernmentId: state.governmentId.isSettingGovernmentId,
 });

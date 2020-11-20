@@ -9,7 +9,7 @@ import { userUpdatingMedicalCard, setMedicalCard } from "./Actions/medicalcardac
 class MedicalCardInterface extends Component {
 
     static propTypes = {
-      cardBeingUpdatedByUser: PropTypes.bool.isRequired,
+      medicalCardBeingUpdatedByUser: PropTypes.bool.isRequired,
       userId: PropTypes.number.isRequired,
       isSettingMedicalCard: PropTypes.bool.isRequired,
       medicalCard: PropTypes.object,
@@ -25,13 +25,13 @@ class MedicalCardInterface extends Component {
     }
 
     render(){
-        const { medicalCard, cardBeingUpdatedByUser, isSettingMedicalCard } = this.props;
+        const { medicalCard, medicalCardBeingUpdatedByUser, isSettingMedicalCard } = this.props;
         if(isSettingMedicalCard){
           return(<div>...Setting Medical Card</div>)
         }
         else{
           if(medicalCard){
-            if(cardBeingUpdatedByUser){
+            if(medicalCardBeingUpdatedByUser){
               return(
                 <UpdateMedicalCardContainer></UpdateMedicalCardContainer>
               );
@@ -53,7 +53,7 @@ class MedicalCardInterface extends Component {
 
 const mapStateToProps = (state) => ({
     medicalCard: state.medicalCard.medicalCard,
-    cardBeingUpdatedByUser: state.medicalCard.cardBeingUpdatedByUser,
+    medicalCardBeingUpdatedByUser: state.medicalCard.medicalCardBeingUpdatedByUser,
     setMedicalCardError: state.medicalCard.setMedicalCardError,
     isSettingMedicalCard: state.medicalCard.isSettingMedicalCard,
 });

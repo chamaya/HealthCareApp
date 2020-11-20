@@ -12,7 +12,7 @@ const initialState = {
   isAddingMedicalCard: false,
   addingMedicalCardFailure: null,
   isUpdatingMedicalCard: false,
-  cardBeingUpdatedByUser: false,
+  medicalCardBeingUpdatedByUser: false,
   isDeletingMedicalCard: false,
   deleteMedicalCardError: null,
 }
@@ -65,7 +65,7 @@ export default function medicalCardReducer(state = initialState, action){
         medicalCard: action.medicalCard,
         isUpdatingMedicalCard: false,
         addMedicalCardError: null,
-        cardBeingUpdatedByUser: false
+        medicalCardBeingUpdatedByUser: false
       }
     case UPDATE_MEDICAL_CARD_FAILURE:
       return {
@@ -76,12 +76,12 @@ export default function medicalCardReducer(state = initialState, action){
     case UPDATE_MEDICAL_CARD_BY_USER:
       return {
         ...state,
-        cardBeingUpdatedByUser: true,
+        medicalCardBeingUpdatedByUser: true,
       }
     case CANCEL_UPDATE_MEDICAL_CARD:
       return{
         ...state,
-        cardBeingUpdatedByUser: false,
+        medicalCardBeingUpdatedByUser: false,
       }
     case DELETE_MEDICAL_CARD_BEGIN:
       return {

@@ -1,7 +1,7 @@
 
 import {SET_GOVERNMENT_ID_BEGIN, SET_GOVERNMENT_ID_SUCCESS, SET_GOVERNMENT_ID_FAILURE, 
   ADD_GOVERNMENT_ID_BEGIN, ADD_GOVERNMENT_ID_SUCCESS, ADD_GOVERNMENT_ID_FAILURE,
-  UPDATE_GOVERNMENT_ID_SUCCESS, UPDATE_GOVERNMENT_ID_BEGIN, UPDATE_GOVERNMENT_ID_FAILURE, UPDATE_GOVERNMENT_ID_BY_USER,
+  UPDATE_GOVERNMENT_ID_SUCCESS, UPDATE_GOVERNMENT_ID_BEGIN, UPDATE_GOVERNMENT_ID_FAILURE, UPDATE_GOVERNMENT_ID_BY_USER, CANCEL_UPDATE_GOVERNMENT_ID,
   DELETE_GOVERNMENT_ID_SUCCESS, DELETE_GOVERNMENT_ID_BEGIN, DELETE_GOVERNMENT_ID_FAILURE,
 } from "../Actions/governmentidactions";
 
@@ -12,7 +12,7 @@ const initialState = {
   isAddingGovernmentId: false,
   addingGovernmentIdFailure: null,
   isUpdatingGovernmentId: false,
-  cardBeingUpdatedByUser: false,
+  governmentIdBeingUpdatedByUser: false,
   isDeletingGovernmentId: false,
   deleteGovernmentIdError: null,
 }
@@ -65,7 +65,7 @@ export default function governmentIdReducer(state = initialState, action){
         governmentId: action.governmentId,
         isUpdatingGovernmentId: false,
         addGovernmentIdError: null,
-        cardBeingUpdatedByUser: false
+        governmentIdBeingUpdatedByUser: false
       }
     case UPDATE_GOVERNMENT_ID_FAILURE:
       return {
@@ -76,7 +76,12 @@ export default function governmentIdReducer(state = initialState, action){
     case UPDATE_GOVERNMENT_ID_BY_USER:
       return {
         ...state,
-        cardBeingUpdatedByUser: true,
+        governmentIdBeingUpdatedByUser: true,
+      }
+    case CANCEL_UPDATE_GOVERNMENT_ID:
+      return {
+        ...state,
+        governmentIdBeingUpdatedByUser: false,
       }
     case DELETE_GOVERNMENT_ID_BEGIN:
       return {
