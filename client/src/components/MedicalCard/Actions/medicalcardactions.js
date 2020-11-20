@@ -7,6 +7,7 @@ export const ADD_MEDICAL_CARD_FAILURE = "ADD_MEDICAL_CARD_FAILURE";
 export const UPDATE_MEDICAL_CARD_SUCCESS = "UPDATE_MEDICAL_CARD_SUCCESS";
 export const UPDATE_MEDICAL_CARD_BEGIN = "UPDATE_MEDICAL_CARD_BEGIN";
 export const UPDATE_MEDICAL_CARD_FAILURE = "UPDATE_MEDICAL_CARD_FAILURE";
+export const CANCEL_UPDATE_MEDICAL_CARD = "CANCEL_UPDATE_MEDICAL_CARD";
 export const UPDATE_MEDICAL_CARD_BY_USER = "UPDATE_MEDICAL_CARD_BY_USER";
 export const DELETE_MEDICAL_CARD_SUCCESS = "DELETE_MEDICAL_CARD_SUCCESS";
 export const DELETE_MEDICAL_CARD_BEGIN = "DELETE_MEDICAL_CARD_BEGIN";
@@ -103,6 +104,9 @@ const updateMedicalCardFailure = (error)=>({
 });
 export const userUpdatingMedicalCard = () =>({
   type:UPDATE_MEDICAL_CARD_BY_USER
+});
+export const userCancelUpdatingMedicalCard = () =>({
+  type:CANCEL_UPDATE_MEDICAL_CARD
 });
 
 //Delete Medical Card Actions

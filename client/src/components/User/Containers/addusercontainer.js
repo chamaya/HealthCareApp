@@ -10,7 +10,7 @@ class AddUserContainer extends Component {
     static propTypes = {
         addUser: PropTypes.func.isRequired,
         isAddingUser: PropTypes.bool.isRequired,
-        history: PropTypes.object.isRequired,
+        history: PropTypes.object,
     }
     render(){
         const { isAddingUser, addUser, history } = this.props;

@@ -19,7 +19,7 @@ class MedicalCardInterface extends Component {
     
     componentDidMount(){
       const{medicalCard, userId, setMedicalCard, setMedicalCardError, isSettingMedicalCard} = this.props;
-      if(!medicalCard && !setMedicalCardError && !isSettingMedicalCard){
+      if((!medicalCard && !setMedicalCardError && !isSettingMedicalCard) || (medicalCard && medicalCard.user !== userId) ){
         setMedicalCard(userId);
       }
     }

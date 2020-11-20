@@ -8,16 +8,20 @@ import { connect } from "react-redux";
 
 class UserInformation extends Component {
     render(){
-      const { user } = this.props;
-      return(
-        <div>
-          <Container maxWidth="sm">
-            <User name={user.name} dob={user.dob} email={user.email}></User>
-            <MedicalCardInterface userId={user.id}></MedicalCardInterface>
-            <GovernmentIdInterface userId={user.id}></GovernmentIdInterface>
-          </Container>
-        </div>
-      );
+      const { user, history } = this.props;
+      if(user){
+        return(
+          <div>
+            <Container maxWidth="sm">
+              <User name={user.name} dob={user.dob} email={user.email}></User>
+              <MedicalCardInterface userId={user.id}></MedicalCardInterface>
+              <GovernmentIdInterface userId={user.id}></GovernmentIdInterface>
+            </Container>
+          </div>
+        );
+      }
+      setTimeout(()=>{ history.push("/") }, 0)
+      return <div>No User Selected</div>
     }
 }
 
